@@ -22,32 +22,32 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{9A0FFA20-B510-485A-9CB2-A7CFC247D0B8}</ProjectGuid>
     <RootNamespace>Planetoids</RootNamespace>
-    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
@@ -84,8 +84,8 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>$(ProjectDir)Game\</OutDir>
     <IntDir>$(ProjectDir)Temp\</IntDir>
-    <IncludePath>$(ProjectDir)ThirdParty\tinyxml2-master;$(IncludePath);$(ProjectDir)ThirdParty\SDL2\include;$(ProjectDir)ThirdParty\SDL2_image\include;$(ProjectDir)ThirdParty\SDL2_image</IncludePath>
-    <LibraryPath>$(ProjectDir)ThirdParty\SDL2\lib\x86;$(LibraryPath);$(ProjectDir)ThirdParty\SDL2_image</LibraryPath>
+    <IncludePath>$(ProjectDir)Third Party\SDL2_image\include;$(ProjectDir)Third Party\SDL2\include;$(ProjectDir)Third Party\SDL2_ttf\include;$(ProjectDir)Third Party\tinyxml2-master;$(ProjectDir)Third Party\Box2D\Box2D\Common;$(ProjectDir)Third Party\Box2D;$(ProjectDir)Third Party\Box2D\Box2D;$(ProjectDir)Third Party\SDL2_mixer\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)Third Party\SDL2_ttf\lib\x86;$(ProjectDir)Third Party\SDL2_image\lib\x86;$(ProjectDir)Third Party\SDL2\lib\x86;$(ProjectDir)Third Party\Box2D\Box2D\lib;$(ProjectDir)Third Party\SDL2_mixer\lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>$(ProjectDir)Game\</OutDir>
@@ -128,6 +128,7 @@ copy "$(ProjectDir)ThirdParty\SDL2\lib\x86\*.dll" "$(ProjectDir)"</Command>
       <SDLCheck>true</SDLCheck>
       <RuntimeLibrary>
       </RuntimeLibrary>
+      <AdditionalIncludeDirectories>$(ProjectDir)ThirdParty\Box2D\Box2D;$(ProjectDir)ThirdParty\Box2D\Box2D\Common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <PreBuildEvent>
       <Command>xcopy "$(ProjectDir)Assets" "$(ProjectDir)Game\Assets" /e /s /r /k
@@ -135,7 +136,7 @@ copy "$(ProjectDir)ThirdParty\SDL2_image\*.dll" "$(ProjectDir)"
 copy "$(ProjectDir)ThirdParty\SDL2\lib\x86\*.dll" "$(ProjectDir)"</Command>
     </PreBuildEvent>
     <Link>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;Box2D.lib;SDL2_mixer.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <TargetMachine>
       </TargetMachine>
       <SubSystem>Windows</SubSystem>
